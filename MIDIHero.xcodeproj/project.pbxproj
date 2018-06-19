@@ -8,20 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		F849C2C720D3030700922371 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F849C2C620D3030700922371 /* AppDelegate.swift */; };
-		F849C2C920D3030700922371 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F849C2C820D3030700922371 /* ViewController.swift */; };
+		F849C2C920D3030700922371 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F849C2C820D3030700922371 /* MainViewController.swift */; };
 		F849C2CC20D3030700922371 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F849C2CA20D3030700922371 /* Main.storyboard */; };
 		F849C2CE20D3030800922371 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F849C2CD20D3030800922371 /* Assets.xcassets */; };
 		F849C2D120D3030800922371 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F849C2CF20D3030800922371 /* LaunchScreen.storyboard */; };
+		F849C2DD20D317B200922371 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F849C2DC20D317B200922371 /* AboutViewController.swift */; };
+		F849C2DF20D3339400922371 /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F849C2DE20D3339400922371 /* InputViewController.swift */; };
+		F8F5549E20D93CD40029FD56 /* ButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F5549D20D93CD40029FD56 /* ButtonViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F849C2C320D3030700922371 /* MIDIHero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MIDIHero.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F849C2C620D3030700922371 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F849C2C820D3030700922371 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F849C2C820D3030700922371 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F849C2CB20D3030700922371 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F849C2CD20D3030800922371 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F849C2D020D3030800922371 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F849C2D220D3030800922371 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F849C2DC20D317B200922371 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		F849C2DE20D3339400922371 /* InputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
+		F8F5549D20D93CD40029FD56 /* ButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,11 +61,14 @@
 			isa = PBXGroup;
 			children = (
 				F849C2C620D3030700922371 /* AppDelegate.swift */,
-				F849C2C820D3030700922371 /* ViewController.swift */,
+				F849C2C820D3030700922371 /* MainViewController.swift */,
+				F849C2DC20D317B200922371 /* AboutViewController.swift */,
 				F849C2CA20D3030700922371 /* Main.storyboard */,
+				F8F5549D20D93CD40029FD56 /* ButtonViewController.swift */,
 				F849C2CD20D3030800922371 /* Assets.xcassets */,
 				F849C2CF20D3030800922371 /* LaunchScreen.storyboard */,
 				F849C2D220D3030800922371 /* Info.plist */,
+				F849C2DE20D3339400922371 /* InputViewController.swift */,
 			);
 			path = MIDIHero;
 			sourceTree = "<group>";
@@ -135,8 +144,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F849C2C920D3030700922371 /* ViewController.swift in Sources */,
+				F849C2DD20D317B200922371 /* AboutViewController.swift in Sources */,
+				F849C2C920D3030700922371 /* MainViewController.swift in Sources */,
 				F849C2C720D3030700922371 /* AppDelegate.swift in Sources */,
+				F8F5549E20D93CD40029FD56 /* ButtonViewController.swift in Sources */,
+				F849C2DF20D3339400922371 /* InputViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,7 +302,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.enu.MIDIHero;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -308,7 +320,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.enu.MIDIHero;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
