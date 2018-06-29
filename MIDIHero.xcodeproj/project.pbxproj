@@ -12,8 +12,11 @@
 		F849C2CC20D3030700922371 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F849C2CA20D3030700922371 /* Main.storyboard */; };
 		F849C2CE20D3030800922371 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F849C2CD20D3030800922371 /* Assets.xcassets */; };
 		F849C2D120D3030800922371 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F849C2CF20D3030800922371 /* LaunchScreen.storyboard */; };
-		F849C2DD20D317B200922371 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F849C2DC20D317B200922371 /* AboutViewController.swift */; };
 		F849C2DF20D3339400922371 /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F849C2DE20D3339400922371 /* InputViewController.swift */; };
+		F8DE8BC820E654F700C6CB98 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DE8BC720E654F700C6CB98 /* SettingsViewController.swift */; };
+		F8DE8BCA20E66F6F00C6CB98 /* midiEndpointCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DE8BC920E66F6F00C6CB98 /* midiEndpointCellView.swift */; };
+		F8DE8BCC20E6709900C6CB98 /* midiChannelCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DE8BCB20E6709900C6CB98 /* midiChannelCellView.swift */; };
+		F8DE8BCE20E6721B00C6CB98 /* MIDISettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DE8BCD20E6721B00C6CB98 /* MIDISettingsViewController.swift */; };
 		F8F5549E20D93CD40029FD56 /* ButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F5549D20D93CD40029FD56 /* ButtonViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,8 +28,11 @@
 		F849C2CD20D3030800922371 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F849C2D020D3030800922371 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F849C2D220D3030800922371 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F849C2DC20D317B200922371 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		F849C2DE20D3339400922371 /* InputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
+		F8DE8BC720E654F700C6CB98 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		F8DE8BC920E66F6F00C6CB98 /* midiEndpointCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = midiEndpointCellView.swift; sourceTree = "<group>"; };
+		F8DE8BCB20E6709900C6CB98 /* midiChannelCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = midiChannelCellView.swift; sourceTree = "<group>"; };
+		F8DE8BCD20E6721B00C6CB98 /* MIDISettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDISettingsViewController.swift; sourceTree = "<group>"; };
 		F8F5549D20D93CD40029FD56 /* ButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,10 +66,13 @@
 		F849C2C520D3030700922371 /* MIDIHero */ = {
 			isa = PBXGroup;
 			children = (
+				F8DE8BC720E654F700C6CB98 /* SettingsViewController.swift */,
 				F849C2C620D3030700922371 /* AppDelegate.swift */,
 				F849C2C820D3030700922371 /* MainViewController.swift */,
-				F849C2DC20D317B200922371 /* AboutViewController.swift */,
 				F849C2CA20D3030700922371 /* Main.storyboard */,
+				F8DE8BCD20E6721B00C6CB98 /* MIDISettingsViewController.swift */,
+				F8DE8BCB20E6709900C6CB98 /* midiChannelCellView.swift */,
+				F8DE8BC920E66F6F00C6CB98 /* midiEndpointCellView.swift */,
 				F8F5549D20D93CD40029FD56 /* ButtonViewController.swift */,
 				F849C2CD20D3030800922371 /* Assets.xcassets */,
 				F849C2CF20D3030800922371 /* LaunchScreen.storyboard */,
@@ -105,6 +114,11 @@
 				TargetAttributes = {
 					F849C2C220D3030700922371 = {
 						CreatedOnToolsVersion = 9.4;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -144,11 +158,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F849C2DD20D317B200922371 /* AboutViewController.swift in Sources */,
+				F8DE8BCC20E6709900C6CB98 /* midiChannelCellView.swift in Sources */,
+				F8DE8BCA20E66F6F00C6CB98 /* midiEndpointCellView.swift in Sources */,
 				F849C2C920D3030700922371 /* MainViewController.swift in Sources */,
 				F849C2C720D3030700922371 /* AppDelegate.swift in Sources */,
+				F8DE8BCE20E6721B00C6CB98 /* MIDISettingsViewController.swift in Sources */,
 				F8F5549E20D93CD40029FD56 /* ButtonViewController.swift in Sources */,
 				F849C2DF20D3339400922371 /* InputViewController.swift in Sources */,
+				F8DE8BC820E654F700C6CB98 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
