@@ -8,42 +8,30 @@
 
 import UIKit
 import CoreBluetooth
+import CoreMIDI
+import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
     // CoreBluetooth variables
     var centralMgr: CBCentralManager!       // CentralManager instance
     var bleGuitar: CBPeripheral!            // Connected peripheral instance
     var primaryCharacteristicUUID: CBUUID!  // UUID of the characteristic from which to collect data
 
-    // Input buffer
+    // CoreMIDI variables
+    var activeMIDIEndpoint: MIDIEndpointRef!// Selected MIDI Destination
+    var activeMIDIEndpointName: String!     // Selected MIDI Endpoint Name
+    var activeMIDIChannel: Int! = 0        // Selected MIDI Channel (Default 1, zero ordering)
     
+    // Input buffer
     var inputData = [UInt8]()
     
-    // Strum bar input representation
-    enum strumBar: Int {
-        // Raw values are integer representations of the raw byte value from the guitar
-        case UP = 255
-        case DOWN = 0
-        case NULL = 128
-    }
-    
-    // Directional input representation
-    enum directionButtons: Int {
-        // Raw values are integer representations of the raw byte value from the guitar
-        case UP_RIGHT = 7
-        case RIGHT = 6
-        case DOWN_RIGHT = 5
-        case DOWN = 4
-        case DOWN_LEFT = 3
-        case LEFT = 2
-        case UP_LEFT = 1
-        case UP = 0
-        case NULL = 15
-    }
-    
+    // Application Trigger Mode
+    var TriggerMode:appMode = .GATE
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true
@@ -64,11 +52,61 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        // Select the first MIDI destination
+        let endpoint:MIDIEndpointRef = MIDIGetDestination(0);
+        if (endpoint != 0)
+        {
+            activeMIDIEndpoint = endpoint
+        }
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    // MARK: - Core Data stack
+    
+    lazy var persistentContainer: NSPersistentContainer = {
+        /*
+         The persistent container for the application. This implementation
+         creates and returns a container, having loaded the store for the
+         application to it. This property is optional since there are legitimate
+         error conditions that could cause the creation of the store to fail.
+         */
+        let container = NSPersistentContainer(name: "MIDIHero")
+        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            if let error = error as NSError? {
+                // Replace this implementation with code to handle the error appropriately.
+                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                
+                /*
+                 Typical reasons for an error here include:
+                 * The parent directory does not exist, cannot be created, or disallows writing.
+                 * The persistent store is not accessible, due to permissions or data protection when the device is locked.
+                 * The device is out of space.
+                 * The store could not be migrated to the current model version.
+                 Check the error message to determine what the actual problem was.
+                 */
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        })
+        return container
+    }()
+    
+    // MARK: - Core Data Saving support
+    
+    func saveContext () {
+        let context = persistentContainer.viewContext
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                // Replace this implementation with code to handle the error appropriately.
+                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                let nserror = error as NSError
+                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+            }
+        }
     }
 
 

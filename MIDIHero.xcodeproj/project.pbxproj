@@ -7,20 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F8146AF020EA5D530051DE96 /* MIDIHero.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F8146AEE20EA5D530051DE96 /* MIDIHero.xcdatamodeld */; };
+		F8146AF220EA7F4B0051DE96 /* MIDIHero.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8146AF120EA7F4B0051DE96 /* MIDIHero.swift */; };
 		F849C2C720D3030700922371 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F849C2C620D3030700922371 /* AppDelegate.swift */; };
 		F849C2C920D3030700922371 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F849C2C820D3030700922371 /* MainViewController.swift */; };
 		F849C2CC20D3030700922371 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F849C2CA20D3030700922371 /* Main.storyboard */; };
 		F849C2CE20D3030800922371 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F849C2CD20D3030800922371 /* Assets.xcassets */; };
 		F849C2D120D3030800922371 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F849C2CF20D3030800922371 /* LaunchScreen.storyboard */; };
 		F849C2DF20D3339400922371 /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F849C2DE20D3339400922371 /* InputViewController.swift */; };
+		F8C2EC1520E7BEE20040023B /* MIDISettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C2EC1420E7BEE20040023B /* MIDISettingsViewController.swift */; };
 		F8DE8BC820E654F700C6CB98 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DE8BC720E654F700C6CB98 /* SettingsViewController.swift */; };
-		F8DE8BCA20E66F6F00C6CB98 /* midiEndpointCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DE8BC920E66F6F00C6CB98 /* midiEndpointCellView.swift */; };
-		F8DE8BCC20E6709900C6CB98 /* midiChannelCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DE8BCB20E6709900C6CB98 /* midiChannelCellView.swift */; };
-		F8DE8BCE20E6721B00C6CB98 /* MIDISettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DE8BCD20E6721B00C6CB98 /* MIDISettingsViewController.swift */; };
 		F8F5549E20D93CD40029FD56 /* ButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F5549D20D93CD40029FD56 /* ButtonViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F8146AEF20EA5D530051DE96 /* MIDIHero.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MIDIHero.xcdatamodel; sourceTree = "<group>"; };
+		F8146AF120EA7F4B0051DE96 /* MIDIHero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIHero.swift; sourceTree = "<group>"; };
 		F849C2C320D3030700922371 /* MIDIHero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MIDIHero.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F849C2C620D3030700922371 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F849C2C820D3030700922371 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -29,10 +31,8 @@
 		F849C2D020D3030800922371 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F849C2D220D3030800922371 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F849C2DE20D3339400922371 /* InputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
+		F8C2EC1420E7BEE20040023B /* MIDISettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDISettingsViewController.swift; sourceTree = "<group>"; };
 		F8DE8BC720E654F700C6CB98 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		F8DE8BC920E66F6F00C6CB98 /* midiEndpointCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = midiEndpointCellView.swift; sourceTree = "<group>"; };
-		F8DE8BCB20E6709900C6CB98 /* midiChannelCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = midiChannelCellView.swift; sourceTree = "<group>"; };
-		F8DE8BCD20E6721B00C6CB98 /* MIDISettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDISettingsViewController.swift; sourceTree = "<group>"; };
 		F8F5549D20D93CD40029FD56 /* ButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -68,11 +68,11 @@
 			children = (
 				F8DE8BC720E654F700C6CB98 /* SettingsViewController.swift */,
 				F849C2C620D3030700922371 /* AppDelegate.swift */,
+				F8146AF120EA7F4B0051DE96 /* MIDIHero.swift */,
+				F8146AEE20EA5D530051DE96 /* MIDIHero.xcdatamodeld */,
 				F849C2C820D3030700922371 /* MainViewController.swift */,
 				F849C2CA20D3030700922371 /* Main.storyboard */,
-				F8DE8BCD20E6721B00C6CB98 /* MIDISettingsViewController.swift */,
-				F8DE8BCB20E6709900C6CB98 /* midiChannelCellView.swift */,
-				F8DE8BC920E66F6F00C6CB98 /* midiEndpointCellView.swift */,
+				F8C2EC1420E7BEE20040023B /* MIDISettingsViewController.swift */,
 				F8F5549D20D93CD40029FD56 /* ButtonViewController.swift */,
 				F849C2CD20D3030800922371 /* Assets.xcassets */,
 				F849C2CF20D3030800922371 /* LaunchScreen.storyboard */,
@@ -158,11 +158,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8DE8BCC20E6709900C6CB98 /* midiChannelCellView.swift in Sources */,
-				F8DE8BCA20E66F6F00C6CB98 /* midiEndpointCellView.swift in Sources */,
+				F8146AF020EA5D530051DE96 /* MIDIHero.xcdatamodeld in Sources */,
+				F8C2EC1520E7BEE20040023B /* MIDISettingsViewController.swift in Sources */,
+				F8146AF220EA7F4B0051DE96 /* MIDIHero.swift in Sources */,
 				F849C2C920D3030700922371 /* MainViewController.swift in Sources */,
 				F849C2C720D3030700922371 /* AppDelegate.swift in Sources */,
-				F8DE8BCE20E6721B00C6CB98 /* MIDISettingsViewController.swift in Sources */,
 				F8F5549E20D93CD40029FD56 /* ButtonViewController.swift in Sources */,
 				F849C2DF20D3339400922371 /* InputViewController.swift in Sources */,
 				F8DE8BC820E654F700C6CB98 /* SettingsViewController.swift in Sources */,
@@ -363,6 +363,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F8146AEE20EA5D530051DE96 /* MIDIHero.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F8146AEF20EA5D530051DE96 /* MIDIHero.xcdatamodel */,
+			);
+			currentVersion = F8146AEF20EA5D530051DE96 /* MIDIHero.xcdatamodel */;
+			path = MIDIHero.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F849C2BB20D3030700922371 /* Project object */;
 }
