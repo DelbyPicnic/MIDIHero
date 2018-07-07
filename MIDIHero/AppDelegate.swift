@@ -17,21 +17,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     // CoreBluetooth variables
-    var centralMgr: CBCentralManager!       // CentralManager instance
-    var bleGuitar: CBPeripheral!            // Connected peripheral instance
-    var primaryCharacteristicUUID: CBUUID!  // UUID of the characteristic from which to collect data
+    var centralMgr: CBCentralManager!               // CentralManager instance
+    var bleGuitar: CBPeripheral!                    // Connected peripheral instance
+    var primaryCharacteristicUUID: CBUUID!          // UUID of the characteristic from which to collect data
 
     // CoreMIDI variables
-    var activeMIDIEndpoint: MIDIEndpointRef!// Selected MIDI Destination
-    var activeMIDIEndpointName: String!     // Selected MIDI Endpoint Name
-    var activeMIDIChannel: Int! = 0        // Selected MIDI Channel (Default 1, zero ordering)
+    var activeMIDIEndpoint: MIDIEndpointRef!        // Selected MIDI Destination
+    var activeMIDIEndpointName: String!             // Selected MIDI Endpoint Name
+    var activeMIDIChannel: Int! = 0                 // Selected MIDI Channel (Default 1, zero ordering)
+    
     
     // Input buffer
     var inputData = [UInt8]()
     
     // Application Trigger Mode
-    var TriggerMode:appMode = .GATE
+    var activeTriggerMode:appMode = .GATE
 
+    // Instantiate the MIDIHero subsystem
+    var mHero = MIDIHero()
+
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true
@@ -62,6 +67,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    // MARK: - MIDI Signal Generation
+    func GenerateMIDISignals(){
+        
     }
     
     // MARK: - Core Data stack
