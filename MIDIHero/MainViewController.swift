@@ -9,14 +9,16 @@
 import UIKit
 import CoreBluetooth
 
-let didUpdateBluetoothData = "com.enu.didUpdateBluetoothData"
-
 // Guitar button bitwise flag definitions
 // Ordered: Btn0 -> Btn5
-let fretBtnFlags:[UInt8] = [0b00000010, 0b00000100, 0b00001000, 0b00000001, 0b00010000, 0b00100000]
-
+let fretFlags:[(String,UInt8)] = [("btn3",0b00000001), ("btn0",0b00000010), ("btn1",0b00000100), ("btn2",0b00001000), ("btn4",0b00010000), ("btn5",0b00100000)]
 // Ordered: PWR, BRIDGE, PAUSE, ACTION
-let sysBtnFlags:[UInt8] = [0b00010000, 0b00001000, 0b00000010, 0b00000100]
+let sysFlags:[(String, UInt8)] = [("PAUSE",0b00000010), ("ACTION",0b00000100), ("BRIDGE", 0b00001000), ("POWER",0b00010000)]
+
+// Input buffers
+var fretBtnBuffer:UInt8 = 0b00000000
+var sysBtnBuffer:UInt8 = 0b00000000
+
 
 class MainViewController: UIViewController {
     
@@ -54,14 +56,6 @@ class MainViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func expandRawBTData(rawData:Array<UInt8>){
-        for (index, flag) in sysBtnFlags.enumerated() {
-            if( flag & rawData[1] != 0b00000000){
-                print("Button " + String(index) + " pressed")
-            }
-        }
     }
 }
 
@@ -124,7 +118,6 @@ extension MainViewController: CBPeripheralDelegate {
         guard let services = peripheral.services else { return }
         
         for service in services {
-            
             peripheral.discoverCharacteristics(nil, for: service)
         }
     }
@@ -149,10 +142,46 @@ extension MainViewController: CBPeripheralDelegate {
         switch characteristic.uuid {
             case appDelegate.primaryCharacteristicUUID:
                 guard let characData = characteristic.value else { return }
+                
                 // Save incoming bluetooth data in app delegate buffer
-                appDelegate.inputData = [UInt8](characData)
-                // Send notification for bluetooth data update
-                NotificationCenter.default.post(name: Notification.Name(rawValue: didUpdateBluetoothData), object: self)
+                let inputData:[UInt8] = [UInt8](characData)
+            
+                // Convert incoming data into button event triggers
+                // Get Fret Button events
+                for (index,flag) in fretFlags.enumerated(){
+                    let dSTAT:UInt8 = inputData[0] & flag.1
+                    let bSTAT:UInt8 = fretBtnBuffer & flag.1
+                    if(dSTAT > bSTAT){
+                        // Button pressed
+                        appDelegate.mHero.fretPressed(fret: index)
+                    }else if(bSTAT > dSTAT){
+                        // Button depressed
+                        appDelegate.mHero.fretDepressed(fret: index)
+                    }
+                }
+                fretBtnBuffer = inputData[0]
+                
+                // Get System Button events
+                for flag in sysFlags{
+                    let dSTAT:UInt8 = inputData[1] & flag.1
+                    let bSTAT:UInt8 = sysBtnBuffer & flag.1
+                    if(dSTAT > bSTAT){
+                        // Button pressed
+                        print(flag.0 + " PRESSED")
+                    }else if(bSTAT > dSTAT){
+                        // Button depressed
+                        print(flag.0 + " DEPRESSED")
+                    }
+                }
+                sysBtnBuffer = inputData[1]
+            
+                // Get strumbar position
+                if (Int(inputData[4]) > 128){
+                    appDelegate.mHero.playNotes()
+                }else if(Int(inputData[4]) < 128){
+                    appDelegate.mHero.playNotes()
+                }
+            
             default:
                 print("Unhandled Characteristic UUID: " + characteristic.uuid.uuidString)
         }

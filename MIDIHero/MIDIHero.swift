@@ -14,28 +14,6 @@ enum appMode: String {
     case STRING = "Strings Mode"
 }
 
-// Strum bar input representation
-enum strumBar: Int {
-    // Raw values are integer representations of the raw byte value from the guitar
-    case UP = 255
-    case DOWN = 0
-    case NULL = 128
-}
-
-// Directional input representation
-enum directionButtons: Int {
-    // Raw values are integer representations of the raw byte value from the guitar
-    case UP_RIGHT = 7
-    case RIGHT = 6
-    case DOWN_RIGHT = 5
-    case DOWN = 4
-    case DOWN_LEFT = 3
-    case LEFT = 2
-    case UP_LEFT = 1
-    case UP = 0
-    case NULL = 15
-}
-
 enum MIDIHeroError: Error {
     case noteOutOfRange
     case noteNotFound(note: String)
@@ -77,6 +55,8 @@ class MIDIHero {
     // VIBRATO BAR & GYRO
     var rangedSensors:[(String,Int)] = [("Vibrato Bar", 4),("Orientation", 5)]
     
+    // Output List
+    private var noteOutLst:[Int] = []
     
     // Find the MIDI note doe a given integer value
     func numToNote(nNumber:Int) throws ->String{
@@ -125,7 +105,7 @@ class MIDIHero {
     func getMin()->Int{
         return self.MIDINoteRange.min
     }
-    // Get the total number of declarable MIDI notes
+    // Get the total number of declared MIDI notes
     func countNotes()->Int{
         return self.MIDINotes.count
     }
@@ -262,4 +242,29 @@ class MIDIHero {
         }
     }
     
+    // Add note to outputList
+    func fretPressed(fret: Int){
+        if(fret >= 0 && fret <= self.fretBtnNotes.count){
+            if(!noteOutLst.contains(fretBtnNotes[fret])){
+                noteOutLst.append(fretBtnNotes[fret])
+            }
+        }
+    }
+    // Remove note from outputList
+    func fretDepressed(fret: Int){
+        if(fret >= 0 && fret <= self.fretBtnNotes.count){
+            if(noteOutLst.contains(fretBtnNotes[fret])){
+                noteOutLst = noteOutLst.filter() { $0 != fretBtnNotes[fret]}
+            }
+        }
+    }
+    
+    // Play top fret notes in the outputList
+    func playNotes(){
+        
+    }
+    // Stop playing a specific note
+    func stopNote(){
+        
+    }
 }

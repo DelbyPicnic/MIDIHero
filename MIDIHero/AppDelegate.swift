@@ -26,10 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var activeMIDIEndpointName: String!             // Selected MIDI Endpoint Name
     var activeMIDIChannel: Int! = 0                 // Selected MIDI Channel (Default 1, zero ordering)
     
-    
-    // Input buffer
-    var inputData = [UInt8]()
-    
     // Application Trigger Mode
     var activeTriggerMode:appMode = .GATE
 

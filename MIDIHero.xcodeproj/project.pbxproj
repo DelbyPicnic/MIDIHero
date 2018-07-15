@@ -23,7 +23,6 @@
 		F8747B6420EE39650016CAF2 /* SensorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8747B6320EE39650016CAF2 /* SensorViewController.swift */; };
 		F8747B6620EE39840016CAF2 /* SensorAdjustmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8747B6520EE39840016CAF2 /* SensorAdjustmentController.swift */; };
 		F8C2EC1520E7BEE20040023B /* MIDISettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C2EC1420E7BEE20040023B /* MIDISettingsViewController.swift */; };
-		F8F5549E20D93CD40029FD56 /* ButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F5549D20D93CD40029FD56 /* ButtonViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,7 +44,6 @@
 		F8747B6320EE39650016CAF2 /* SensorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorViewController.swift; sourceTree = "<group>"; };
 		F8747B6520EE39840016CAF2 /* SensorAdjustmentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorAdjustmentController.swift; sourceTree = "<group>"; };
 		F8C2EC1420E7BEE20040023B /* MIDISettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDISettingsViewController.swift; sourceTree = "<group>"; };
-		F8F5549D20D93CD40029FD56 /* ButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +90,6 @@
 				F8282AA220ED3116000CA7CA /* SystemButtonAdjustmentController.swift */,
 				F8C2EC1420E7BEE20040023B /* MIDISettingsViewController.swift */,
 				F871208120EA9F1500F6FABC /* TriggerSettingsViewController.swift */,
-				F8F5549D20D93CD40029FD56 /* ButtonViewController.swift */,
 				F849C2CD20D3030800922371 /* Assets.xcassets */,
 				F849C2CF20D3030800922371 /* LaunchScreen.storyboard */,
 				F849C2D220D3030800922371 /* Info.plist */,
@@ -188,7 +185,6 @@
 				F849C2C920D3030700922371 /* MainViewController.swift in Sources */,
 				F849C2C720D3030700922371 /* AppDelegate.swift in Sources */,
 				F87427C720EC1EB500B27516 /* FretButtonAdjustmentController.swift in Sources */,
-				F8F5549E20D93CD40029FD56 /* ButtonViewController.swift in Sources */,
 				F8747B6220EE390A0016CAF2 /* StrumBarViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
