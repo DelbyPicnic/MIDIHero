@@ -24,8 +24,6 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var connectInfo: UILabel!
     @IBOutlet weak var connectStatus: UIActivityIndicatorView!
-    @IBOutlet weak var btnShowSensorData: UIButton!
-    @IBOutlet weak var btnShowAllInput: UIButton!
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
@@ -40,8 +38,7 @@ class MainViewController: UIViewController {
         if(appDelegate.bleGuitar != nil){
             // If a pre-existing connection is already active then update UI state
             connectInfo.text = "Connected to: " + appDelegate.bleGuitar.name!
-            btnShowSensorData.isEnabled = true
-            btnShowAllInput.isEnabled = true
+            
             connectStatus.stopAnimating()
         }
     }
@@ -74,8 +71,6 @@ extension MainViewController: CBCentralManagerDelegate {
             // Bluetooth is disabled, tell user to enable bluetooth
             connectInfo.text = "Bluetooth is not enabled!"
             connectStatus.stopAnimating()
-            btnShowAllInput.isEnabled = false
-            btnShowSensorData.isEnabled = false
             print("central.state is powered off!")
         case .poweredOn:
             // Bluetooth is enabled, scan for hardware
@@ -108,8 +103,6 @@ extension MainViewController: CBCentralManagerDelegate {
         appDelegate.bleGuitar = nil
         connectInfo.text = "Searching for Guitar"
         connectStatus.startAnimating()
-        btnShowAllInput.isEnabled = false
-        btnShowSensorData.isEnabled = false
     }
 }
 
@@ -129,8 +122,6 @@ extension MainViewController: CBPeripheralDelegate {
             if charac.properties.contains(.notify) {
                 
                 print("Found characteristic")
-                btnShowSensorData.isEnabled = true
-                btnShowAllInput.isEnabled = true
                 appDelegate.primaryCharacteristicUUID = charac.uuid
                 
                 peripheral.setNotifyValue(true, for: charac)
