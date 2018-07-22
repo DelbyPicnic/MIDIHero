@@ -13,6 +13,7 @@ import CoreData
 class MIDISettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let midiManager = MIDISubSystem.shared
     
     var allMIDIDestinations:[MIDIEndpointRef]!
     
@@ -20,7 +21,7 @@ class MIDISettingsViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var stpChannelSelect: UIStepper!
     @IBAction func stpChannelSelectDidChange(_ sender: Any) {
         // Update actual MIDI Channel in the application delegate
-        appDelegate.activeMIDIChannel = Int(stpChannelSelect.value)
+        midiManager.midiChannel = Int(stpChannelSelect.value)
         // Update UI
         lblMIDIChannel.text = ("MIDI Channel: " + String(Int(stpChannelSelect.value)))
         
@@ -40,7 +41,7 @@ class MIDISettingsViewController: UIViewController, UITableViewDelegate, UITable
             // Get the destination name
             cell.textLabel?.text = getDisplayName(endpoint);
             // If the destination is the selected destination then set the checkmark
-            if(endpoint == appDelegate.activeMIDIEndpoint){
+            if(endpoint == midiManager.midiEndpoint){
                 cell.accessoryType = .checkmark
             }else{
                 cell.accessoryType = .none
@@ -52,7 +53,7 @@ class MIDISettingsViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         // Set MIDI destination in the application deletage
-        appDelegate.activeMIDIEndpoint = allMIDIDestinations[indexPath.row]
+        midiManager.midiEndpoint = allMIDIDestinations[indexPath.row]
         
         // Update tableView data
         tableView.reloadData()
@@ -73,7 +74,7 @@ class MIDISettingsViewController: UIViewController, UITableViewDelegate, UITable
             }
         }
         // Set stepper value to the active setting within the app delegate
-        stpChannelSelect.value = Double(appDelegate.activeMIDIChannel)
+        stpChannelSelect.value = Double(midiManager.midiChannel)
         // Set channel indecator label
         lblMIDIChannel.text = ("MIDI Channel: " + String(Int(stpChannelSelect.value)))
     }

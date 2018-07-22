@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F8146AF020EA5D530051DE96 /* MIDIHero.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F8146AEE20EA5D530051DE96 /* MIDIHero.xcdatamodeld */; };
 		F8146AF220EA7F4B0051DE96 /* MIDIHero.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8146AF120EA7F4B0051DE96 /* MIDIHero.swift */; };
 		F849C2C720D3030700922371 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F849C2C620D3030700922371 /* AppDelegate.swift */; };
 		F849C2C920D3030700922371 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F849C2C820D3030700922371 /* MainViewController.swift */; };
@@ -16,13 +15,10 @@
 		F849C2D120D3030800922371 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F849C2CF20D3030800922371 /* LaunchScreen.storyboard */; };
 		F87427C520EBE68A00B27516 /* FretButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87427C420EBE68A00B27516 /* FretButtonViewController.swift */; };
 		F87427C720EC1EB500B27516 /* FretButtonAdjustmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87427C620EC1EB400B27516 /* FretButtonAdjustmentController.swift */; };
-		F8747B6420EE39650016CAF2 /* SensorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8747B6320EE39650016CAF2 /* SensorViewController.swift */; };
-		F8747B6620EE39840016CAF2 /* SensorAdjustmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8747B6520EE39840016CAF2 /* SensorAdjustmentController.swift */; };
 		F8C2EC1520E7BEE20040023B /* MIDISettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C2EC1420E7BEE20040023B /* MIDISettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F8146AEF20EA5D530051DE96 /* MIDIHero.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MIDIHero.xcdatamodel; sourceTree = "<group>"; };
 		F8146AF120EA7F4B0051DE96 /* MIDIHero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIHero.swift; sourceTree = "<group>"; };
 		F849C2C320D3030700922371 /* MIDIHero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MIDIHero.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F849C2C620D3030700922371 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -33,8 +29,6 @@
 		F849C2D220D3030800922371 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F87427C420EBE68A00B27516 /* FretButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FretButtonViewController.swift; sourceTree = "<group>"; };
 		F87427C620EC1EB400B27516 /* FretButtonAdjustmentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FretButtonAdjustmentController.swift; sourceTree = "<group>"; };
-		F8747B6320EE39650016CAF2 /* SensorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorViewController.swift; sourceTree = "<group>"; };
-		F8747B6520EE39840016CAF2 /* SensorAdjustmentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorAdjustmentController.swift; sourceTree = "<group>"; };
 		F8C2EC1420E7BEE20040023B /* MIDISettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDISettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,13 +64,10 @@
 			children = (
 				F849C2C620D3030700922371 /* AppDelegate.swift */,
 				F8146AF120EA7F4B0051DE96 /* MIDIHero.swift */,
-				F8146AEE20EA5D530051DE96 /* MIDIHero.xcdatamodeld */,
 				F849C2C820D3030700922371 /* MainViewController.swift */,
 				F849C2CA20D3030700922371 /* Main.storyboard */,
 				F87427C620EC1EB400B27516 /* FretButtonAdjustmentController.swift */,
 				F87427C420EBE68A00B27516 /* FretButtonViewController.swift */,
-				F8747B6320EE39650016CAF2 /* SensorViewController.swift */,
-				F8747B6520EE39840016CAF2 /* SensorAdjustmentController.swift */,
 				F8C2EC1420E7BEE20040023B /* MIDISettingsViewController.swift */,
 				F849C2CD20D3030800922371 /* Assets.xcassets */,
 				F849C2CF20D3030800922371 /* LaunchScreen.storyboard */,
@@ -117,6 +108,7 @@
 				TargetAttributes = {
 					F849C2C220D3030700922371 = {
 						CreatedOnToolsVersion = 9.4;
+						LastSwiftMigration = 1000;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -161,11 +153,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8146AF020EA5D530051DE96 /* MIDIHero.xcdatamodeld in Sources */,
 				F8C2EC1520E7BEE20040023B /* MIDISettingsViewController.swift in Sources */,
 				F8146AF220EA7F4B0051DE96 /* MIDIHero.swift in Sources */,
-				F8747B6620EE39840016CAF2 /* SensorAdjustmentController.swift in Sources */,
-				F8747B6420EE39650016CAF2 /* SensorViewController.swift in Sources */,
 				F87427C520EBE68A00B27516 /* FretButtonViewController.swift in Sources */,
 				F849C2C920D3030700922371 /* MainViewController.swift in Sources */,
 				F849C2C720D3030700922371 /* AppDelegate.swift in Sources */,
@@ -322,7 +311,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.enu.MIDIHero;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -340,7 +329,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.enu.MIDIHero;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -367,19 +356,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		F8146AEE20EA5D530051DE96 /* MIDIHero.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				F8146AEF20EA5D530051DE96 /* MIDIHero.xcdatamodel */,
-			);
-			currentVersion = F8146AEF20EA5D530051DE96 /* MIDIHero.xcdatamodel */;
-			path = MIDIHero.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = F849C2BB20D3030700922371 /* Project object */;
 }

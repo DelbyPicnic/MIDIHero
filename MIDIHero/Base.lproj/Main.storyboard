@@ -34,7 +34,7 @@
                                 <rect key="frame" x="177" y="557" width="20" height="20"/>
                             </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Searching for Guitar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sTl-Qe-0Cl">
-                                <rect key="frame" x="111" y="585" width="153.5" height="21"/>
+                                <rect key="frame" x="16" y="585" width="343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -44,13 +44,13 @@
                         <constraints>
                             <constraint firstItem="sTl-Qe-0Cl" firstAttribute="top" secondItem="EAY-vr-7BE" secondAttribute="bottom" constant="8" id="07m-X5-Pff"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EAY-vr-7BE" secondAttribute="trailing" constant="178" id="1KF-Le-aiH"/>
-                            <constraint firstItem="sTl-Qe-0Cl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="111" id="1th-D8-G8u"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8Fn-xl-JbW" secondAttribute="trailing" constant="122" id="6Xe-ss-82c"/>
                             <constraint firstItem="tbb-Im-VQn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="KBC-2L-5j7"/>
                             <constraint firstItem="EAY-vr-7BE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="177" id="MFt-BM-mVy"/>
                             <constraint firstItem="8Fn-xl-JbW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="122" id="QFV-Wj-oAP"/>
+                            <constraint firstItem="sTl-Qe-0Cl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="SXB-ha-icq"/>
                             <constraint firstItem="8Fn-xl-JbW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ZOT-f1-GNg"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="sTl-Qe-0Cl" secondAttribute="trailing" constant="110.5" id="bgd-kd-Z6t"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="sTl-Qe-0Cl" secondAttribute="trailing" constant="16" id="dzo-j5-gae"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="sTl-Qe-0Cl" secondAttribute="bottom" constant="61" id="fAh-kP-OBK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tbb-Im-VQn" secondAttribute="trailing" constant="10" id="w7n-Re-iIT"/>
                         </constraints>
@@ -64,7 +64,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="473" y="-1234"/>
+            <point key="canvasLocation" x="472.80000000000001" y="-1235.5322338830586"/>
         </scene>
         <!--Settings-->
         <scene sceneID="vTP-AM-lVI">
