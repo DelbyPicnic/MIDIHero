@@ -67,7 +67,7 @@ class MIDIHero {
     
     // MIDI Subsystem Instance
     let midiManager:MIDISubSystem = MIDISubSystem.shared
-    
+
     // MIDI Note Conversion and Processing
     let MIDINoteRange = (min: 35, max: 81)    // MinMax Midi notes (B0 -> A4)
     let MIDINotes = [(35, "B0"), (36, "C1"), (37, "C#1"),(38, "D1"),
@@ -85,18 +85,16 @@ class MIDIHero {
     
     // Instrument Variables
     // FRETS: 1 2 3 4 5 6
-    var fretBtnNotes:[Int] = [57, 58, 59, 60, 61, 62]
+    var fretBtnNotes:[Int] = [48, 50, 52, 53, 55, 57]
     // SYS: PAUSE ACTION BRIDGE POWER
     var sysBtnValues:[(String,Int)] = [("Pause", 0),("Action",1),("Bridge",2),("Power",3)]
-    // DRIECTIONS: UP UP_LEFT LEFT DOWN_LEFT DOWN DOWN_RIGHT RIGHT UP_RIGHT
-    var directBtnValues:[(String,Int)] = [("Up",102), ("Up Left",103),
-                                          ("Left",104), ("Down Left",105),
-                                          ("Down",106), ("Down Right",107),
-                                          ("Right",108), ("Up Right",109)]
     
-    
-    // VIBRATO BAR & GYRO
-    var rangedSensors:[(String,Int)] = [("Vibrato Bar", 4),("Orientation", 5)]
+    // Orientation Sensor Toggle
+    /*
+     Orientation sensor should be togglable to simplify the process of MIDI learn operations.
+     When the orientation sensor is constantly sending out midi messages, button press MIDI learning can be cumbersome.
+    */
+    var orientSensorEnabled:Bool = true
     
     // Output List
     private var noteOutLst:[Int] = []
@@ -104,10 +102,6 @@ class MIDIHero {
     // Map function
     func mapToRange(value: Float, in_low: Float, in_hight: Float, out_low: Float, out_high: Float)->Float{
         return (value - in_low) * (out_high - out_low) / (in_hight - in_low) + out_low
-    }
-    // Round function
-    func round(_ value:Float) -> Float{
-        return floor(value + 0.5)
     }
     
     // Change MIDI Settings
@@ -223,6 +217,20 @@ class MIDIHero {
         // Stop playing MIDI note
         self.midiManager.noteOff(note: noteValue)
     }
+    /*
+    // Send control change signal on
+    func fnBtnPressed(btn: String){
+        // Get assigned controller value
+        let ctrlValue:Int = sysBtnValues[btn].1
+        self.midiManager.controlChange(controller: ctrlValue, value: 127)
+    }
+    */
+    // Send control change signal off
+    func fnBtnDepressed(btn: String){
+        // Get assigned controller value
+        
+        self.midiManager.controlChange(controller: 0, value: 0)
+    }
     
     // Play pressed fret notes
     func playNotes(){
@@ -236,5 +244,15 @@ class MIDIHero {
         // Incoming pitchbend value should be ranged at (0 - 100) (%)
         let pitchVal:Float = self.mapToRange(value: value, in_low: 0.0, in_hight: 100.0, out_low: 64.0, out_high: 127.0)
         self.midiManager.pitchShift(value: Int(pitchVal))
+    }
+    
+    // Alter the orientation sensor
+    func orientSensor(value:Float){
+        // Incoming orientation value shoule be ranged at (0 - 100) (%)
+        // Send only if sensor output enabled
+        if(self.orientSensorEnabled){
+            let orientVal:Float = self.mapToRange(value: value, in_low: 0.0, in_hight: 100.0, out_low: 0.0, out_high: 127.0)
+            self.midiManager.controlChange(controller: 5, value: Int(orientVal))
+        }
     }
 }

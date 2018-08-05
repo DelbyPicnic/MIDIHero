@@ -13,7 +13,7 @@ import CoreBluetooth
 // Ordered: Btn0 -> Btn5
 let fretFlags:[(String,UInt8)] = [("btn0",0b00000010), ("btn1",0b00000100), ("btn2",0b00001000), ("btn3",0b00000001), ("btn4",0b00010000), ("btn5",0b00100000)]
 // Ordered: PWR, BRIDGE, PAUSE, ACTION
-let sysFlags:[(String, UInt8)] = [("PAUSE",0b00000010), ("ACTION",0b00000100), ("BRIDGE", 0b00001000), ("POWER",0b00010000)]
+let sysFlags:[(String, UInt8)] = [("Pause",0b00000010), ("Action",0b00000100), ("Bridge", 0b00001000), ("Power",0b00010000)]
 
 // Input buffers
 var fretBtnBuffer:UInt8 = 0b00000000
@@ -43,6 +43,11 @@ class MainViewController: UIViewController {
             
             connectStatus.stopAnimating()
         }
+        // Round function
+        func round(_ value:Float) -> Float{
+            return floor(value + 0.5)
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -177,8 +182,14 @@ extension MainViewController: CBPeripheralDelegate {
                 
                 // Get vibrato bar position
                 if(inputData[6] != inputBuffer[6]){
-                    let value = Float( (Float(inputData[6]) - 128.0)/(255.0 - 128.0) * 100)
-                    appDelegate.mHero.pitchBend(value: value)
+                    let vibratoValue = Float( (Float(inputData[6]) - 128.0)/(255.0 - 128.0) * 100)
+                    appDelegate.mHero.pitchBend(value: vibratoValue)
+                }
+                
+                // Get orientation sensor value
+                if(inputData[19] != inputBuffer[19]){
+                    let orientValue = round(Float(inputData[19])/255 * 100)
+                    appDelegate.mHero.orientSensor(value: orientValue)
                 }
                 
             inputBuffer = inputData

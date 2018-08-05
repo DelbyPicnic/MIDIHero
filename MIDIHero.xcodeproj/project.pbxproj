@@ -15,6 +15,7 @@
 		F849C2D120D3030800922371 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F849C2CF20D3030800922371 /* LaunchScreen.storyboard */; };
 		F87427C520EBE68A00B27516 /* FretButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87427C420EBE68A00B27516 /* FretButtonViewController.swift */; };
 		F87427C720EC1EB500B27516 /* FretButtonAdjustmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87427C620EC1EB400B27516 /* FretButtonAdjustmentController.swift */; };
+		F87540C2210CCE2C00FCE560 /* OrientSensorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87540C1210CCE2C00FCE560 /* OrientSensorTableViewController.swift */; };
 		F8C2EC1520E7BEE20040023B /* MIDISettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C2EC1420E7BEE20040023B /* MIDISettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		F849C2D220D3030800922371 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F87427C420EBE68A00B27516 /* FretButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FretButtonViewController.swift; sourceTree = "<group>"; };
 		F87427C620EC1EB400B27516 /* FretButtonAdjustmentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FretButtonAdjustmentController.swift; sourceTree = "<group>"; };
+		F87540C1210CCE2C00FCE560 /* OrientSensorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrientSensorTableViewController.swift; sourceTree = "<group>"; };
 		F8C2EC1420E7BEE20040023B /* MIDISettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDISettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,6 +68,7 @@
 				F8146AF120EA7F4B0051DE96 /* MIDIHero.swift */,
 				F849C2C820D3030700922371 /* MainViewController.swift */,
 				F849C2CA20D3030700922371 /* Main.storyboard */,
+				F87540C1210CCE2C00FCE560 /* OrientSensorTableViewController.swift */,
 				F87427C620EC1EB400B27516 /* FretButtonAdjustmentController.swift */,
 				F87427C420EBE68A00B27516 /* FretButtonViewController.swift */,
 				F8C2EC1420E7BEE20040023B /* MIDISettingsViewController.swift */,
@@ -158,6 +161,7 @@
 				F87427C520EBE68A00B27516 /* FretButtonViewController.swift in Sources */,
 				F849C2C920D3030700922371 /* MainViewController.swift in Sources */,
 				F849C2C720D3030700922371 /* AppDelegate.swift in Sources */,
+				F87540C2210CCE2C00FCE560 /* OrientSensorTableViewController.swift in Sources */,
 				F87427C720EC1EB500B27516 /* FretButtonAdjustmentController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
