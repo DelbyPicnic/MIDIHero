@@ -9,9 +9,16 @@ import SwiftUI
 
 @main
 struct MIDIHeroApp: App {
+    var midiHero:MIDIHeroModel = MIDIHeroModel()
+    
+    init(){
+        print ("[MIDIHero] Starting Application.")
+    }
+    
     var body: some Scene {
+        
         WindowGroup {
-            ContentView()
+            MIDIHeroView().environmentObject(midiHero)
         }
     }
 }
