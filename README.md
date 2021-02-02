@@ -5,6 +5,11 @@
 * July/August 2018: Project was created as a university assignment. This version is targeted at iPhone and iPad, running iOS 11/12 I think.
 * January 2021: Project is updated to target iOS 14 and SwiftUI. This is a completely rewritten version of MIDIHero using SwiftUI (iOS 14 Only)
 
+| Date          | Description                                                                                                                    |
+|:------------- | ------------------------------------------------------------------------------------------------------------------------------:|
+| July 2018     | Project was created as a university assignment. This version is targeted at iPhone and iPad, running iOS 11/12 I.              |
+| January 2021  | Project is updated to target iOS 14 and SwiftUI. This is a completely rewritten version of MIDIHero using SwiftUI (iOS 14 Only)|
+
 ## About
 MIDIHero was conceptualised as an assignment project for a university module called Sensing Systems. The module focused on embedded systems and microcontroller/hardware interconnectiviry.
 For the module's final project, we had to create some embedded system, which could accept commands from a mobile phone application.
