@@ -2,8 +2,6 @@
 ### MIDIHero is an iOS application that connects to a GuitarHero® Bluetooth Low Energy controller, and converts the controller events into General MIDI 1.0 messages.
 
 ## Project History
-* July/August 2018: Project was created as a university assignment. This version is targeted at iPhone and iPad, running iOS 11/12 I think.
-* January 2021: Project is updated to target iOS 14 and SwiftUI. This is a completely rewritten version of MIDIHero using SwiftUI (iOS 14 Only)
 
 | Date          | Description                                                                                                                    |
 |:------------- | ------------------------------------------------------------------------------------------------------------------------------:|
