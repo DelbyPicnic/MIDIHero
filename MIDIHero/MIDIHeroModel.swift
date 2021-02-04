@@ -37,18 +37,23 @@ final class MIDIHeroModel: NSObject, ObservableObject {
     override init(){
         do {
             self.rules = [
-                try NoteRule(name: "Fret 1 Up", channel: 2, parameter: "fret_0", notes: ["C3"], activator: StrumDirection.StrumUP),
-                try NoteRule(name: "Fret 1 Down", channel: 2, parameter: "fret_0", notes: ["C2"], activator: StrumDirection.StrumDown),
-                try NoteRule(name: "Fret 2 Up", channel: 2, parameter: "fret_1", notes: ["E3"], activator: StrumDirection.StrumUP),
-                try NoteRule(name: "Fret 2 Down", channel: 2, parameter: "fret_1", notes: ["E2"], activator: StrumDirection.StrumDown),
-                try NoteRule(name: "Fret 3 Up", channel: 2, parameter: "fret_2", notes: ["G3"], activator: StrumDirection.StrumUP),
-                try NoteRule(name: "Fret 3 Down", channel: 2, parameter: "fret_2", notes: ["G2"], activator: StrumDirection.StrumDown),
-                try NoteRule(name: "Fret 4 Up", channel: 2, parameter: "fret_3", notes: ["D3"], activator: StrumDirection.StrumUP),
-                try NoteRule(name: "Fret 4 Down", channel: 2, parameter: "fret_3", notes: ["D2"], activator: StrumDirection.StrumDown),
-                try NoteRule(name: "Fret 5 Up", channel: 2, parameter: "fret_4", notes: ["F3"], activator: StrumDirection.StrumUP),
-                try NoteRule(name: "Fret 5 Down", channel: 2, parameter: "fret_4", notes: ["F2"], activator: StrumDirection.StrumDown),
-                try NoteRule(name: "Fret 6 Up", channel: 2, parameter: "fret_5", notes: ["A3"], activator: StrumDirection.StrumUP),
-                try NoteRule(name: "Fret 6 Down", channel: 2, parameter: "fret_5", notes: ["A2"], activator: StrumDirection.StrumDown)
+                try NoteRule(name: "Fret 1 Up", parameter: "fret_0", notes: [Note.C3], activator: StrumDirection.StrumUP),
+                try NoteRule(name: "Fret 1 Down", parameter: "fret_0", notes: [Note.C2], activator: StrumDirection.StrumDown),
+                
+                try NoteRule(name: "Fret 2 Up", parameter: "fret_1", notes: [Note.E3], activator: StrumDirection.StrumUP),
+                try NoteRule(name: "Fret 2 Down", parameter: "fret_1", notes: [Note.E2], activator: StrumDirection.StrumDown),
+                
+                try NoteRule(name: "Fret 3 Up", parameter: "fret_2", notes: [Note.G3], activator: StrumDirection.StrumUP),
+                try NoteRule(name: "Fret 3 Down", parameter: "fret_2", notes: [Note.G2], activator: StrumDirection.StrumDown),
+                
+                try NoteRule(name: "Fret 4 Up", parameter: "fret_3", notes: [Note.D3], activator: StrumDirection.StrumUP),
+                try NoteRule(name: "Fret 4 Down", parameter: "fret_3", notes: [Note.D2], activator: StrumDirection.StrumDown),
+                
+                try NoteRule(name: "Fret 5 Up", parameter: "fret_4", notes: [Note.F3], activator: StrumDirection.StrumUP),
+                try NoteRule(name: "Fret 5 Down", parameter: "fret_4", notes: [Note.F2], activator: StrumDirection.StrumDown),
+                
+                try NoteRule(name: "Fret 6 Up", parameter: "fret_5", notes: [Note.A3], activator: StrumDirection.StrumUP),
+                try NoteRule(name: "Fret 6 Down", parameter: "fret_5", notes: [Note.A2], activator: StrumDirection.StrumDown)
             ]
         } catch RuleTypeError.ControllerFlagNotRecognised {
             print ("[MIDIHero][Error] Could not create rule: Controller flag not recognised")
@@ -157,17 +162,10 @@ extension MIDIHeroModel: CBPeripheralDelegate {
         // Handle controller state update notification
         if (characteristic.uuid == self.targetCharacteristicUUID) {
             guard let rawBroadcast = characteristic.value else { return }
-             let inputBuffer = [UInt8](rawBroadcast)
+            let inputBuffer = [UInt8](rawBroadcast)
             
             for rule in rules {
-                rule.process(state: inputBuffer[rule.offset], mdi: mdi)
-            }
-            if (inputBuffer[4] != self.inputLast[4]){
-                if (Int(inputBuffer[4]) > 128){
-                    mdi.strum(direct: StrumDirection.StrumUP)
-                }else if(Int(inputBuffer[4]) < 128){
-                    mdi.strum(direct: StrumDirection.StrumDown)
-                }
+                rule.process(stateCurrent: inputBuffer, stateLast: inputLast,  mdi: mdi)
             }
             mdi.flush()
             
