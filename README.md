@@ -5,7 +5,7 @@
 
 | Date          | Description                                                                                                                    |
 |:------------- | ------------------------------------------------------------------------------------------------------------------------------:|
-| July 2018     | Project was created as a university assignment. This version is targeted at iPhone and iPad, running iOS 11/12 I.              |
+| July 2018     | Project was created as a university assignment. This version is targeted at iPhone and iPad, running iOS 11/12.                |
 | January 2021  | Project is updated to target iOS 14 and SwiftUI. This is a completely rewritten version of MIDIHero using SwiftUI (iOS 14 Only)|
 
 ## About
