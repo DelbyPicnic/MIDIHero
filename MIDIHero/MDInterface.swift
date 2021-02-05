@@ -64,7 +64,8 @@ final class MDInterface {
                 print("\t \(getDisplayName(endpoint))")
             }
         }
-
+        
+        self.active = true
         print ("[MIDIHero][MIDI] Connected to: \(getDisplayName(self.midiEndpoint))")
     }
     
@@ -108,6 +109,7 @@ final class MDInterface {
         for note in notes {
             if let _ = self.openNotes[note] {
                 self.openNotes[note] = 0
+                self.outputBuffer.append(createMIDIPacket(msg: midiMessages.NoteOff, action: note.rawValue, value: 0))
             }
         }
     }
@@ -124,39 +126,47 @@ final class MDInterface {
         self.outputBuffer.append(createMIDIPacket(msg: midiMessages.PitchBend, action: 0, value: value))
     }
     
-    func flush(){
+    func update(){
+        DispatchQueue.global(qos: .userInitiated).async { [unowned self] in
+            self.flush()
+        }
+    }
+    
+    private func flush(){
         // send all messages in output buffer
         // update note values
-        for (note, velocity) in self.openNotes {
-            if (velocity > 0) {
-                if (velocity < self.sustain) {
-                    self.openNotes[note]! = 0
-                    
-                    self.outputBuffer.append(createMIDIPacket(msg: midiMessages.NoteOff, action: note.rawValue, value: 0))
+        while self.active {
+            for (note, velocity) in self.openNotes {
+                if (velocity > 0) {
+                    if (velocity < self.sustain) {
+                        self.openNotes[note]! = 0
+                        
+                        self.outputBuffer.append(createMIDIPacket(msg: midiMessages.NoteOff, action: note.rawValue, value: 0))
+                    } else {
+                        let value = velocity - self.sustain
+                        self.openNotes[note]! = value
+                        
+                        self.outputBuffer.append(createMIDIPacket(msg: midiMessages.NoteOn, action: note.rawValue, value: value))
+                    }
                 } else {
-                    let value = velocity - self.sustain
-                    self.openNotes[note]! = value
                     
-                    self.outputBuffer.append(createMIDIPacket(msg: midiMessages.NoteOn, action: note.rawValue, value: value))
                 }
-            } else {
-                
             }
+            // Learn to use MIDIPacketList properly to optimise this section
+            // Double `for` loop is shite code man
+            for pkt in self.outputBuffer {
+                /*
+                let stat = String(pkt.data.0, radix: 2)
+                let param = String(pkt.data.1, radix: 2)
+                let value = String(pkt.data.2, radix: 2)
+                
+                print ("Packet: \(stat) \(param) \(value)")
+                */
+                
+                var pktList:MIDIPacketList = MIDIPacketList(numPackets: 1, packet: pkt)
+                MIDISend(self.midiOutPort, self.midiEndpoint, &pktList)
+            }
+            self.outputBuffer.removeAll()
         }
-        // Learn to use MIDIPacketList properly to optimise this section
-        // Double `for` loop is shite code man
-        for pkt in self.outputBuffer {
-            /*
-            let stat = String(pkt.data.0, radix: 2)
-            let param = String(pkt.data.1, radix: 2)
-            let value = String(pkt.data.2, radix: 2)
-            
-            print ("Packet: \(stat) \(param) \(value)")
-            */
-            
-            var pktList:MIDIPacketList = MIDIPacketList(numPackets: 1, packet: pkt)
-            MIDISend(self.midiOutPort, self.midiEndpoint, &pktList)
-        }
-        self.outputBuffer.removeAll()
     }
 }

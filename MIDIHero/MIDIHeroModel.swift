@@ -167,7 +167,6 @@ extension MIDIHeroModel: CBPeripheralDelegate {
             for rule in rules {
                 rule.process(stateCurrent: inputBuffer, stateLast: inputLast,  mdi: mdi)
             }
-            mdi.flush()
             
             self.inputLast = inputBuffer
         } else {
