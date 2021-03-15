@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Note: UInt8 {
+enum Note: UInt8, CaseIterable {
     case B0 = 35
     case C1 = 36
     case Db1 = 37

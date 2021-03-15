@@ -73,6 +73,10 @@ final class MIDIHeroModel: NSObject, ObservableObject {
     }
     
     func round(_ value:Float) -> Float { return floor(value + 0.5) }
+    
+    func playNote(note: Note){
+        self.mdi.notesOn(notes: [note], value: 64)
+    }
 }
 
 extension MIDIHeroModel: CBCentralManagerDelegate {

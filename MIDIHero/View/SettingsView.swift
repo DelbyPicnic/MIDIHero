@@ -26,6 +26,12 @@ struct SettingsView: View {
                         FormLinkView(icon: "globe", color: Color.blue, text: "Blackfeet UK", link: "https://boards.4channel.org")
                     }
                     .padding(.vertical, 3)
+                    Section(header: Text("Debug")){
+                        NavigationLink(destination:DebugNotesView()){
+                            FormRowView(icon: "hammer", iconColor: Color.blue, heading: "Trigger Notes")
+                        }
+                    }
+                    .padding(.vertical, 3)
                     Text("©2021 Blackfeet UK")
                         .multilineTextAlignment(.center)
                         .font(.footnote)

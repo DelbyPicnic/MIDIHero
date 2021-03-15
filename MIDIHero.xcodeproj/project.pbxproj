@@ -11,6 +11,7 @@
 		F81FC74525C786CE001C2A54 /* ControllerSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81FC74425C786CE001C2A54 /* ControllerSettingsView.swift */; };
 		F81FC74A25C78A14001C2A54 /* FormOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81FC74925C78A14001C2A54 /* FormOptionView.swift */; };
 		F83B3E2925BF4C4700008750 /* SwiftMIDI in Frameworks */ = {isa = PBXBuildFile; productRef = F83B3E2825BF4C4700008750 /* SwiftMIDI */; };
+		F83B5A2325F170C300AEBCD0 /* DebugNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83B5A2225F170C300AEBCD0 /* DebugNotesView.swift */; };
 		F8425F3B25BB96370004BAAA /* DataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8425F3A25BB96370004BAAA /* DataModels.swift */; };
 		F8425F4025BBBA250004BAAA /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8425F3F25BBBA250004BAAA /* Rule.swift */; };
 		F851F24D25C35B6400EEBEF8 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F851F24C25C35B6400EEBEF8 /* SettingsView.swift */; };
@@ -52,6 +53,7 @@
 		F81FC73F25C786B3001C2A54 /* MIDISettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDISettingsView.swift; sourceTree = "<group>"; };
 		F81FC74425C786CE001C2A54 /* ControllerSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerSettingsView.swift; sourceTree = "<group>"; };
 		F81FC74925C78A14001C2A54 /* FormOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormOptionView.swift; sourceTree = "<group>"; };
+		F83B5A2225F170C300AEBCD0 /* DebugNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugNotesView.swift; sourceTree = "<group>"; };
 		F8425F3A25BB96370004BAAA /* DataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModels.swift; sourceTree = "<group>"; };
 		F8425F3F25BBBA250004BAAA /* Rule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rule.swift; sourceTree = "<group>"; };
 		F851F24C25C35B6400EEBEF8 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				F81FC73F25C786B3001C2A54 /* MIDISettingsView.swift */,
 				F81FC74425C786CE001C2A54 /* ControllerSettingsView.swift */,
 				F81FC74925C78A14001C2A54 /* FormOptionView.swift */,
+				F83B5A2225F170C300AEBCD0 /* DebugNotesView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				F851F24D25C35B6400EEBEF8 /* SettingsView.swift in Sources */,
 				F89DC42225B257CD003CDF13 /* StatusView.swift in Sources */,
 				F851F25C25C36AB800EEBEF8 /* FormLinkView.swift in Sources */,
+				F83B5A2325F170C300AEBCD0 /* DebugNotesView.swift in Sources */,
 				F89DC42025B257CD003CDF13 /* MIDIHeroApp.swift in Sources */,
 				F851F25725C3636700EEBEF8 /* FormRowView.swift in Sources */,
 				F8425F3B25BB96370004BAAA /* DataModels.swift in Sources */,
