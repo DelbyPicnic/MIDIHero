@@ -28,3 +28,4 @@ There's a lot left to do in the overhauled version, as not all features from the
 * Pitch Bend, Modulation, and Controller Change messages have been tested, but need implemented.
 * I plan to completely restructure the method in which controller events are transcoded to midi events as the current method is clunky.
 * Update livery and naming to something less trademark infringing.
+* Update project structure to be less convoluted
