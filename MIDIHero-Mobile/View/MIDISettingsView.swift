@@ -12,7 +12,7 @@ struct MIDISettingsView: View {
         Form {
             Section(header: Text("MIDI Destinations")){
                 ListRowView(icon: "flag", iconColor: Color.purple, heading: "Version", subtext: "2.0")
-                FormLinkView(icon: "globe", color: Color.blue, text: "Blackfeet UK", link: "https://gps.co.uk")
+                FormLinkView(icon: "globe", color: Color.blue, text: "Blackfeet UK", link: "https://google.co.uk")
             }
             .padding(.vertical, 3)
 

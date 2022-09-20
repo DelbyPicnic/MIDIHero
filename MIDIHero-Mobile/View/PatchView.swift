@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct PatchView: View {
-    @EnvironmentObject var midiHero: MIDIHeroModel
     
     var body: some View {
         NavigationView {
@@ -29,7 +28,6 @@ struct PatchView: View {
 
 struct PatchView_Previews: PreviewProvider {
     static var previews: some View {
-        let midiHero = MIDIHeroModel()
-        PatchView().environmentObject(midiHero)
+        PatchView()
     }
 }

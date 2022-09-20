@@ -8,9 +8,8 @@
 import Combine
 import SwiftUI
 
-
 struct StatusView: View {
-    @EnvironmentObject var midiHero: MIDIHeroModel
+    @EnvironmentObject var bluetoothManager: BluetoothManager
     
     var body: some View {
         
@@ -19,7 +18,7 @@ struct StatusView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(height: 250)
-            Text("\(self.midiHero.cnxStatus)")
+            Text("\(self.bluetoothManager.connectionStatus)")
                 .padding()
             
             ProgressView().frame(width: 40.0, height: 40.0)
@@ -38,9 +37,9 @@ struct ShadowProgressViewStyle: ProgressViewStyle {
 
 struct StatusView_Previews: PreviewProvider {
     static var previews: some View {
-        let midiHero = MIDIHeroModel()
+        let bluetoothManager: BluetoothManager = BluetoothManager()
         Group {
-            StatusView().environmentObject(midiHero)
+            StatusView().environmentObject(bluetoothManager)
         }
     }
 }

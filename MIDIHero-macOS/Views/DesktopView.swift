@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct DesktopView: View {
-    @EnvironmentObject var midiHero: MIDIHeroModel
+    @EnvironmentObject var bluetoothManager: BluetoothManager
+    @EnvironmentObject var midiManager: MIDIManager
+    
     var body: some View {
         NavigationView {
             SidebarView()
@@ -18,8 +20,11 @@ struct DesktopView: View {
 }
 
 struct SidebarView: View {
+    @EnvironmentObject var bluetoothManager: BluetoothManager
+    @EnvironmentObject var midiManager: MIDIManager
+    
     @State private var isDefaultItemActive = true
-    @EnvironmentObject var midiHero: MIDIHeroModel
+    
     
     var body: some View {
         let list = List {
@@ -37,6 +42,9 @@ struct SidebarView: View {
                     }
                     NavigationLink(destination: PageView(pageText: "page 2")) {
                         ListRowView(icon: "questionmark.circle", iconColor: Color.black, heading: "About")
+                    }
+                    NavigationLink(destination: DebugView()) {
+                        ListRowView(icon: "ant.circle", iconColor: Color.black, heading: "Debug")
                     }
                 }
                 .listStyle(SidebarListStyle())
@@ -70,13 +78,12 @@ private func toggleSidebar() {
 #endif
 
 struct ContentView_Previews: PreviewProvider {
-    @EnvironmentObject var midiHero: MIDIHeroModel
-    
-    
     static var previews: some View {
-        let midiHero = MIDIHeroModel()
-        
-        DesktopView().environmentObject(midiHero)
+        let bluetoothManager: BluetoothManager = BluetoothManager()
+        let midiManager: MIDIManager = MIDIManager()
+        DesktopView()
+            .environmentObject(bluetoothManager)
+            .environmentObject(midiManager)
         
     }
 }

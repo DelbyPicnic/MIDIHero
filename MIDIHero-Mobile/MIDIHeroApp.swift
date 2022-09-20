@@ -9,7 +9,9 @@ import SwiftUI
 
 @main
 struct MIDIHeroApp: App {
-    var midiHero:MIDIHeroModel = MIDIHeroModel()
+    var bluetoothManager:BluetoothManager = BluetoothManager()
+    var midiManager:MIDIManager = MIDIManager()
+    
     
     init(){
         print ("[MIDIHero] Starting Application.")
@@ -18,7 +20,9 @@ struct MIDIHeroApp: App {
     var body: some Scene {
         
         WindowGroup {
-            MIDIHeroPhoneView().environmentObject(midiHero)
+            MIDIHeroPhoneView()
+                .environmentObject(bluetoothManager)
+                .environmentObject(midiManager)
         }
     }
 }

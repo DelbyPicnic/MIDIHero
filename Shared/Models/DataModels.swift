@@ -56,3 +56,30 @@ enum Note: UInt8, CaseIterable {
     case Ab4 = 80
     case A4 = 81
 }
+
+// MinMax Midi notes (B0 -> A4)
+let MIDINoteRange = (min: 35, max: 81)
+
+let dataMask:UInt8      = 0b01111111
+let channelMask:UInt8   = 0b00001111
+
+enum midiMessages: UInt8 {
+    case NoteOn        = 0b10010000
+    case NoteOff       = 0b10000000
+    case PolyPressure  = 0b10100000
+    case ControlChange = 0b10110000
+    case PitchBend     = 0b11100000
+    case SystemCommon  = 0b11110000
+}
+
+struct OpenNote {
+    private var key:Note
+    private var velocity:Int
+    init(key:Note, velocity:Int){
+        self.key = key
+        self.velocity = velocity
+    }
+    func queryNote(){
+        
+    }
+}

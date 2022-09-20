@@ -23,7 +23,7 @@ struct SettingsView: View {
                     .padding(.vertical, 3)
                     Section(header: Text("About")){
                         ListRowView(icon: "flag", iconColor: Color.purple, heading: "Version", subtext: "2.0")
-                        FormLinkView(icon: "globe", color: Color.blue, text: "Blackfeet UK", link: "https://boards.4channel.org")
+                        FormLinkView(icon: "globe", color: Color.blue, text: "Blackfeet UK", link: "https://google.co.uk")
                     }
                     .padding(.vertical, 3)
                     Section(header: Text("Debug")){
@@ -32,7 +32,7 @@ struct SettingsView: View {
                         }
                     }
                     .padding(.vertical, 3)
-                    Text("©2021 Blackfeet UK")
+                    Text("©2022 Blackfeet UK")
                         .multilineTextAlignment(.center)
                         .font(.footnote)
                         .padding(.top, 6)

@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct MIDIHeroPhoneView: View {
-    @EnvironmentObject var midiHero: MIDIHeroModel
+    @EnvironmentObject var bluetoothManager: BluetoothManager
+    @EnvironmentObject var midiManager: MIDIManager
     
     var body: some View {
         
@@ -33,10 +34,13 @@ struct MIDIHeroPhoneView: View {
 }
 
 struct MIDIHeroView_Previews: PreviewProvider {
-    @EnvironmentObject var midiHero: MIDIHeroModel
-    
     static var previews: some View {
-        let midiHero = MIDIHeroModel()
-        MIDIHeroPhoneView().environmentObject(midiHero)
+        let bluetoothManager: BluetoothManager = BluetoothManager()
+        let midiManager: MIDIManager = MIDIManager()
+        
+        MIDIHeroPhoneView()
+            .environmentObject(bluetoothManager)
+            .environmentObject(midiManager)
+        
     }
 }

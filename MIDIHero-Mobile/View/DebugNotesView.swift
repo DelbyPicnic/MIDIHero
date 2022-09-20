@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct DebugNotesView: View {
-    @EnvironmentObject var midiHero: MIDIHeroModel
     
     var body: some View {
         Form {

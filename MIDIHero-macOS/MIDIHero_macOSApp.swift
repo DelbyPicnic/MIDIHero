@@ -9,15 +9,27 @@ import SwiftUI
 
 @main
 struct MIDIHero_macOSApp: App {
-    var midiHero:MIDIHeroModel = MIDIHeroModel()
+    var bluetoothManager: BluetoothManager
+    var midiManager: MIDIManager
+    var controllerManager: ControllerManager
     
     init(){
         print ("[MIDIHero] Starting Application.")
+        
+        self.controllerManager = ControllerManager()
+        print("[MIDIHero] Initialising Bluetooth Manager")
+        self.bluetoothManager = BluetoothManager(onUpdate: self.controllerManager.DidChangeState)
+        print("[MIDIHero] Initialising MIDI Manager")
+        self.midiManager = MIDIManager()
+        
     }
     
     var body: some Scene {
         WindowGroup {
-            DesktopView().environmentObject(midiHero).navigationTitle("MIDI Hero")
+            DesktopView()
+                .environmentObject(bluetoothManager)
+                .environmentObject(midiManager)
+                .navigationTitle("MIDI Hero")
         }
     }
 }
