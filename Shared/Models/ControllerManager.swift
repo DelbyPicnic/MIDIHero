@@ -11,26 +11,68 @@ enum ControllerError: Error {
     case UnknownControllerEvent
 }
 
+// Controller Input States
+enum InputState: Codable {
+    case Changed
+    case StrumUp
+    case StrumDown
+    case Pressed
+    case Depressed
+    case Up
+    case Down
+    case Left
+    case Right
+    case UpLeft
+    case UpRight
+    case DownLeft
+    case DownRight
+    case None
+}
+
+// Controller Input Types
+enum InputType: Codable {
+    case Fret1, Fret2, Fret3, Fret4, Fret5, Fret6
+    case Strumbar
+    case Pause
+    case Action
+    case Bridge
+    case Power
+    case Gyro
+    case Vibrato
+    case Directional
+}
+
+// Controller State Change Event
+struct ControllerEvent {
+    var Name: InputType
+    var State: InputState
+    var Value: Any?
+    var debugByte: UInt8
+}
+
 final class ControllerManager: NSObject, ObservableObject {
+    private var eventHndler: EventHandler
+    private let ruleSet: Ruleset
     
-    private var ControllerState: ControllerStateTransformer
+    private var controllerState: ControllerStateTransformer
     
     private var controllerBuffer: [UInt8] = Array(repeating: 0b00000000, count: 20)
     
     public func DidChangeState(buffer: [UInt8]) -> Void {
-        self.ControllerState.updateState(buff: buffer)
+        self.controllerState.updateState(buff: buffer)
         
-        let events = self.ControllerState.getEvents()
-        if events.count != 0 {
-            for event in events {
-                print("\(event.Name): \t\(event.State)\t\t \(ByteToString(byte: event.debugByte, toSize: 8))")
-            }
+        let controllerEvents = self.controllerState.getEvents()
+        if controllerEvents.count != 0 {
+            print("something happened")
+            let appEvents = self.ruleSet.transformControllerEvents(events: controllerEvents)
+            self.eventHndler.handleEvents(events: appEvents)
         }
-        
     }
     
     override init(){
-        self.ControllerState = ControllerStateTransformer()
+        self.eventHndler = EventHandler.shared
+        self.ruleSet = Ruleset.shared
+        self.controllerState = ControllerStateTransformer()
         super.init()
     }
 }
@@ -38,44 +80,6 @@ final class ControllerManager: NSObject, ObservableObject {
 private class ControllerStateTransformer {
     private var controllerBuffer: [UInt8]
     private var eventList: [ControllerEvent]
-    
-    // Controller State Change Event
-    struct ControllerEvent {
-        var Name: InputType
-        var State: InputState
-        var Value: Any?
-        var debugByte: UInt8
-    }
-    
-    // Controller Input States
-    enum InputState {
-        case Changed
-        case StrumUp
-        case StrumDown
-        case Pressed
-        case Depressed
-        case Up
-        case Down
-        case Left
-        case Right
-        case UpLeft
-        case UpRight
-        case DownLeft
-        case DownRight
-        case None
-    }
-    // Controller Input Types
-    enum InputType {
-        case Fret1, Fret2, Fret3, Fret4, Fret5, Fret6
-        case Strumbar
-        case Pause
-        case Action
-        case Bridge
-        case Power
-        case Gyro
-        case Vibrato
-        case Directional
-    }
     
     // Controller Input Offsets
     enum Offsets: Int, CaseIterable {

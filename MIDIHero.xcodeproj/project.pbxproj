@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C454727A28DA713F0086F921 /* Ruleset.swift in Sources */ = {isa = PBXBuildFile; fileRef = C454727928DA713F0086F921 /* Ruleset.swift */; };
+		C454727B28DA713F0086F921 /* Ruleset.swift in Sources */ = {isa = PBXBuildFile; fileRef = C454727928DA713F0086F921 /* Ruleset.swift */; };
+		C47FC6FA28DD04970000DA73 /* EventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47FC6F928DD04970000DA73 /* EventHandler.swift */; };
+		C47FC6FB28DD04970000DA73 /* EventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47FC6F928DD04970000DA73 /* EventHandler.swift */; };
 		C4A7CBAB28D8EB2D0028F259 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A7CBAA28D8EB2D0028F259 /* Utils.swift */; };
 		C4A7CBAC28D8EB2D0028F259 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A7CBAA28D8EB2D0028F259 /* Utils.swift */; };
 		C4A7CBAE28D9055C0028F259 /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A7CBAD28D9055C0028F259 /* DebugView.swift */; };
@@ -52,6 +56,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C454727928DA713F0086F921 /* Ruleset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ruleset.swift; sourceTree = "<group>"; };
+		C47FC6F928DD04970000DA73 /* EventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventHandler.swift; sourceTree = "<group>"; };
 		C4A7CBAA28D8EB2D0028F259 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		C4A7CBAD28D9055C0028F259 /* DebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugView.swift; sourceTree = "<group>"; };
 		C4DC2CF728D4E93B003147C7 /* MIDIHero-macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MIDIHero-macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,6 +176,8 @@
 				C4EDDD6728D6009B00252B1C /* MIDIManager.swift */,
 				C4EDDD6A28D6049200252B1C /* ControllerManager.swift */,
 				C4A7CBAA28D8EB2D0028F259 /* Utils.swift */,
+				C454727928DA713F0086F921 /* Ruleset.swift */,
+				C47FC6F928DD04970000DA73 /* EventHandler.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -357,6 +365,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4A7CBAF28D9055C0028F259 /* DebugView.swift in Sources */,
+				C47FC6FB28DD04970000DA73 /* EventHandler.swift in Sources */,
 				C4DC2CFC28D4E93B003147C7 /* DesktopView.swift in Sources */,
 				C4DC2D8228D4EFD0003147C7 /* DataModels.swift in Sources */,
 				C4EDDD6928D6009B00252B1C /* MIDIManager.swift in Sources */,
@@ -365,6 +374,7 @@
 				C4FF0DC928D5458300E1F80A /* DesktopSettingsView.swift in Sources */,
 				C4DC2D9128D51320003147C7 /* ListRowView.swift in Sources */,
 				C4A7CBAC28D8EB2D0028F259 /* Utils.swift in Sources */,
+				C454727B28DA713F0086F921 /* Ruleset.swift in Sources */,
 				C4EDDD6328D5E72F00252B1C /* SettingsManager.swift in Sources */,
 				C4EDDD6628D5FEB400252B1C /* BluetoothManager.swift in Sources */,
 				C4EDDD6C28D6049200252B1C /* ControllerManager.swift in Sources */,
@@ -382,8 +392,10 @@
 				F83B5A2325F170C300AEBCD0 /* DebugNotesView.swift in Sources */,
 				C4EDDD6B28D6049200252B1C /* ControllerManager.swift in Sources */,
 				F89DC42025B257CD003CDF13 /* MIDIHeroApp.swift in Sources */,
+				C47FC6FA28DD04970000DA73 /* EventHandler.swift in Sources */,
 				F851F25725C3636700EEBEF8 /* ListRowView.swift in Sources */,
 				F8425F3B25BB96370004BAAA /* DataModels.swift in Sources */,
+				C454727A28DA713F0086F921 /* Ruleset.swift in Sources */,
 				F81FC74525C786CE001C2A54 /* ControllerSettingsView.swift in Sources */,
 				C4EDDD6228D5E72F00252B1C /* SettingsManager.swift in Sources */,
 				F81FC74A25C78A14001C2A54 /* FormOptionView.swift in Sources */,
