@@ -80,7 +80,7 @@ private func toggleSidebar() {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         let bluetoothManager: BluetoothManager = BluetoothManager()
-        let midiManager: MIDIManager = MIDIManager()
+        let midiManager: MIDIManager = MIDIManager.shared
         DesktopView()
             .environmentObject(bluetoothManager)
             .environmentObject(midiManager)

@@ -20,7 +20,7 @@ struct MIDIHero_macOSApp: App {
         print("[MIDIHero] Initialising Bluetooth Manager")
         self.bluetoothManager = BluetoothManager(onUpdate: self.controllerManager.DidChangeState)
         print("[MIDIHero] Initialising MIDI Manager")
-        self.midiManager = MIDIManager()
+        self.midiManager = MIDIManager.shared
         
     }
     
